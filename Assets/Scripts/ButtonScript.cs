@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class ButtonScript : MonoBehaviour
 {
-    public bool Correct;
-    public string Text;
 
-
- 
-    void Update()
+    /*void Update()
     {
-        
-    }
 
-    public void Clicked()
-    {
-        if (Correct == true)
-        { Debug.Log("Correct Answer"); }
-        else { Debug.Log("Wrong Answer"); }
-    }
+    }*/
+
+    /* public void Clicked()
+     {
+
+         if (question.correct)
+         { Debug.Log("Correct Answer"); }
+         else { Debug.Log("Wrong Answer"); }
+     }*/
 }
