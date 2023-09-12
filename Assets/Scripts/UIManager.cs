@@ -33,9 +33,9 @@ public class UIManager : MonoBehaviour
     }
     public void UpdatAnswers(Question question)
     {
-        answer1text.text = "1." + question.ans1;
-        answer2text.text = "2." + question.ans2;
-        answer3text.text = "3." + question.ans3;
-        answer4text.text = "4." + question.ans4;
+        answer1text.text =  question.ans1;
+        answer2text.text =  question.ans2;
+        answer3text.text =  question.ans3;
+        answer4text.text =  question.ans4;
     }
 }

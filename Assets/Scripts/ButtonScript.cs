@@ -1,20 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ButtonScript : MonoBehaviour
 {
-
-    /*void Update()
+    [SerializeField] TMP_Text answerText;
+    public void ButtonClicked()
     {
-
-    }*/
-
-    /* public void Clicked()
-     {
-
-         if (question.correct)
-         { Debug.Log("Correct Answer"); }
-         else { Debug.Log("Wrong Answer"); }
-     }*/
+        if (answerText.text == GameManager.GetCorrectAnswer())
+            Debug.Log("answer is correct");
+        
+        else
+            Debug.Log("answer is not correct");
+    }
 }

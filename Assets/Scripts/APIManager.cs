@@ -45,6 +45,7 @@ public class APIManager : MonoBehaviour
                     Question question = JsonUtility.FromJson<Question>(jsonQuestion);
                     uIManager.UpdateQuestion(question);
                     uIManager.UpdatAnswers(question);
+                    GameManager.CurrentQuestion = question;
                     break;
             }
         }
