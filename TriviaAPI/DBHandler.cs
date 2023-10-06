@@ -17,6 +17,9 @@ namespace TriviaAPI
         const string GetQuestionQuery = "SELECT * FROM trivia.questions WHERE CategoryID = @categoryId ORDER BY RAND() LIMIT 1;";
         const string AddPlayerQuery = "INSERT INTO `trivia`.`players` (`Name`) VALUES ('*');";
         const string UpdateScoreQuery = "INSERT INTO `trivia`.`players` (`Score`) VALUES ('*');";
+        const string DeletePlayerQuery = "DELETE FROM trivia.players;" +
+                                         "\nALTER TABLE trivia.players AUTO_INCREMENT = 1;";
+        const string GetPlayerCountQuery = "SELECT COUNT(`PlayerID`) FROM trivia.players;";
         public string RunstringQuery(string query)
         {
             string result = null;
@@ -33,6 +36,17 @@ namespace TriviaAPI
             catch (Exception ex) { }
             Disconnect();
             return result;
+        }
+        public void RunDeleteQuery(string query)
+        {
+            try
+            {
+                Connect();
+                cmd = new MySqlCommand(query, con);
+                reader = cmd.ExecuteReader();
+            }
+            catch (Exception ex) { }
+            Disconnect();
         }
         public void RunAddQuery(string query)
         {
@@ -70,7 +84,23 @@ namespace TriviaAPI
             Disconnect();
             return question;
         }
-
+        public string RunPlayerCountQuery(string query)
+        {
+            string result = null;
+            try
+            {
+                Connect();
+                cmd = new MySqlCommand(query, con);
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    result = reader.GetString(0);
+                }
+            }
+            catch (Exception ex) { }
+            Disconnect();
+            return result;
+        }
         public Question GetQuestion(int id)
         {
             return RunQuestionQuery(GetQuestionQuery, id);
@@ -84,10 +114,22 @@ namespace TriviaAPI
         {
             RunAddQuery(AddPlayerQuery.Replace("*", name));
         }
+        public void DeletePlayer()
+        {
+            RunDeleteQuery(DeletePlayerQuery);
+        }
         public void UpdateScore(string score)
         {
             RunAddQuery(UpdateScoreQuery.Replace("*", score));
         }
+        public string GetPlayerCount()
+        {
+            return RunPlayerCountQuery(GetPlayerCountQuery);
+        }
+
+
+
+
         public void Connect()
         {
             try
@@ -101,6 +143,8 @@ namespace TriviaAPI
                 con.Close();
             }
         }
+
+
         public void Disconnect()
         {
             con.Close();

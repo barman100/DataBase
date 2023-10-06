@@ -7,7 +7,7 @@ public class UIManager : MonoBehaviour
 {
     //public TMP_InputField playerId;
     //public TMP_Text playerName;
-    public TMP_InputField playerName;
+    
     public TMP_InputField questionId;
     public TMP_Text questiontext;
     public TMP_Text answer1text;
@@ -24,10 +24,7 @@ public class UIManager : MonoBehaviour
     {
         _APIManager.GetQuestion(questionId.text);
     }
-    public void PostPlayerButtonClicked()
-    {
-        _APIManager.UpdatePlayerName(playerName.text);
-    }
+    
     /*public void UpdatePlayerName(string name)
     {
        

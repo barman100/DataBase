@@ -14,7 +14,10 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Canvas WaitScreen;
     [SerializeField] private TMP_InputField NameInputField;
     [SerializeField] private Button ReturnButton;
-
+    [SerializeField] private TMP_InputField playerName;
+    [SerializeField] private MainMenuAPIManager _MainMenuAPIManager;
+    private int playerCount = 0;
+    private int checkcount; 
 
 
     private bool CreditsShowing = false;
@@ -27,8 +30,13 @@ public class MainMenuManager : MonoBehaviour
     }
     private void Update()
     {
-        /*if (WaitScreen.enabled == true)
-        { StartGame(); }*/
+        if (WaitScreen.isActiveAndEnabled == true)
+        {
+            playerCount = _MainMenuAPIManager.GetPlayerCount();
+            if (playerCount == 2)
+                StartGame();
+        }
+        
     }
     public void StartButtonClicked()
     {
@@ -39,6 +47,7 @@ public class MainMenuManager : MonoBehaviour
     {
         if (NameInputField.text != "")
         {
+            _MainMenuAPIManager.UpdatePlayerName(playerName.text);
             NameScreen.gameObject.SetActive(false);
             WaitScreen.gameObject.SetActive(true);
         }
@@ -54,8 +63,6 @@ public class MainMenuManager : MonoBehaviour
         if (CreditsShowing) { Credits.SetActive(false); CreditsShowing = false; ReturnButton.gameObject.SetActive(false); }
         else if (!CreditsShowing) { Credits.SetActive(true); CreditsShowing = true; ReturnButton.gameObject.SetActive(true); }
     }
-
-
 
     public void ReturnButtonClicked()
     {

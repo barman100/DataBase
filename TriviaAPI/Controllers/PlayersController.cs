@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Xml.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,7 +17,12 @@ namespace TriviaAPI.Controllers
             DBHandler dBHandler = new DBHandler();
             return dBHandler.GetPlayerName(id);
         }
-
+        [HttpGet]
+        public string GetCount()
+        {
+            DBHandler dBHandler = new DBHandler();
+            return dBHandler.GetPlayerCount();
+        }
         // POST api/<PlayersController>
         [HttpPost]
         public void Post([FromForm] string name)
@@ -28,9 +34,11 @@ namespace TriviaAPI.Controllers
         
 
         // DELETE api/<PlayersController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete]
+        public void Delete()
         {
+            DBHandler dBHandler = new DBHandler();
+            dBHandler.DeletePlayer();
         }
     }
 }

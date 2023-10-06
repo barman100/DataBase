@@ -9,10 +9,7 @@ public class APIManager : MonoBehaviour
     [SerializeField] UIManager uIManager;
     const string API_URL = "https://localhost:7014/api/";
 
-    public void UpdatePlayerName(string name)
-    {
-        StartCoroutine(UpdatePlayerNameCor(name));
-    }
+    
     /*public void GetPlayerName(string id)
     {
         StartCoroutine(GetPlayerNameCor(id));
@@ -29,26 +26,7 @@ public class APIManager : MonoBehaviour
     {
         StartCoroutine(GetQuestionCor(categoryID));
     }
-    IEnumerator UpdatePlayerNameCor(string name)
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("Name", name);
-
-        using (UnityWebRequest request = UnityWebRequest.Post(API_URL + "Players/", form))
-        {
-            yield return request.SendWebRequest();
-
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                Debug.Log("Success " + name);
-            }
-            else
-            {
-                Debug.Log("Failed " + name);
-                Debug.Log("Respond Content" + request.downloadHandler.text);
-            }
-        }
-    }
+    
     IEnumerator UpdatePlayerScoreCor(int score)
     {
         WWWForm form = new WWWForm();
