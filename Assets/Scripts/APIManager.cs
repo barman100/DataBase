@@ -17,7 +17,14 @@ public class APIManager : MonoBehaviour
     {
         StartCoroutine(GetPlayerNameCor(id));
     }*/
-
+    public void UpdatePlayerScore(int score)
+    {
+        StartCoroutine(UpdatePlayerScoreCor(score));
+    }
+    public void UpdatePlayerTime(float time)
+    {
+        //StartCoroutine(UpdatePlayerNameCor(time));
+    }
     public void GetQuestion(string categoryID)
     {
         StartCoroutine(GetQuestionCor(categoryID));
@@ -33,11 +40,31 @@ public class APIManager : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.Success)
             {
-                Debug.Log("Success" + name);
+                Debug.Log("Success " + name);
             }
             else
             {
-                Debug.Log("Failed" + name);
+                Debug.Log("Failed " + name);
+                Debug.Log("Respond Content" + request.downloadHandler.text);
+            }
+        }
+    }
+    IEnumerator UpdatePlayerScoreCor(int score)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("Score", score);
+
+        using (UnityWebRequest request = UnityWebRequest.Post(API_URL + "Score/", form))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Success " + score);
+            }
+            else
+            {
+                Debug.Log("Failed " + score);
                 Debug.Log("Respond Content" + request.downloadHandler.text);
             }
         }

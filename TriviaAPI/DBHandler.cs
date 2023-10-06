@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.X509;
 using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace TriviaAPI
 {
@@ -15,6 +16,7 @@ namespace TriviaAPI
         const string GetPlayerQuery = "SELECT Name FROM trivia.players where PlayerID = ";
         const string GetQuestionQuery = "SELECT * FROM trivia.questions WHERE CategoryID = @categoryId ORDER BY RAND() LIMIT 1;";
         const string AddPlayerQuery = "INSERT INTO `trivia`.`players` (`Name`) VALUES ('*');";
+        const string UpdateScoreQuery = "INSERT INTO `trivia`.`players` (`Score`) VALUES ('*');";
         public string RunstringQuery(string query)
         {
             string result = null;
@@ -81,6 +83,10 @@ namespace TriviaAPI
         public void AddPlayer(string name)
         {
             RunAddQuery(AddPlayerQuery.Replace("*", name));
+        }
+        public void UpdateScore(string score)
+        {
+            RunAddQuery(UpdateScoreQuery.Replace("*", score));
         }
         public void Connect()
         {

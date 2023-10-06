@@ -50,10 +50,11 @@ DROP TABLE IF EXISTS `players`;
 CREATE TABLE `players` (
   `PlayerID` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(45) DEFAULT NULL,
-  `Ttime` float DEFAULT NULL,
+  `Score` int DEFAULT NULL,
+  `Time` float DEFAULT NULL,
   PRIMARY KEY (`PlayerID`),
   UNIQUE KEY `idplayers_UNIQUE` (`PlayerID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +63,6 @@ CREATE TABLE `players` (
 
 LOCK TABLES `players` WRITE;
 /*!40000 ALTER TABLE `players` DISABLE KEYS */;
-INSERT INTO `players` VALUES (1,'sami',NULL),(2,'ron',NULL),(3,'bar',NULL),(4,'Ido',NULL);
 /*!40000 ALTER TABLE `players` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,7 +83,9 @@ CREATE TABLE `questions` (
   `Correctanswer` int DEFAULT NULL,
   `CategoryID` int DEFAULT NULL,
   PRIMARY KEY (`QuestionID`),
-  UNIQUE KEY `idquestions_UNIQUE` (`QuestionID`)
+  UNIQUE KEY `idquestions_UNIQUE` (`QuestionID`),
+  KEY `CategoryID_idx` (`CategoryID`),
+  CONSTRAINT `CategoryID` FOREIGN KEY (`CategoryID`) REFERENCES `categories` (`CategoryID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -106,4 +108,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-12 16:57:36
+-- Dump completed on 2023-10-06 16:26:45
