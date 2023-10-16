@@ -9,7 +9,6 @@ namespace TriviaAPI.Controllers
     [ApiController]
     public class PlayersController : ControllerBase
     {
-        
         // GET api/<PlayersController>/5
         [HttpGet("{id}")]
         public string Get(int id)
@@ -30,9 +29,6 @@ namespace TriviaAPI.Controllers
             DBHandler dBHandler = new DBHandler();
             dBHandler.AddPlayer(name);
         }
-
-        
-
         // DELETE api/<PlayersController>/5
         [HttpDelete]
         public void Delete()

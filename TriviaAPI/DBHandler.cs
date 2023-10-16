@@ -13,10 +13,13 @@ namespace TriviaAPI
         MySqlCommand cmd;
         MySqlDataReader reader;
 
-        const string GetPlayerQuery = "SELECT Name FROM trivia.players where PlayerID = ";
+        const string GetPlayerQuery = "SELECT Name FROM trivia.players WHERE PlayerID = ";
         const string GetQuestionQuery = "SELECT * FROM trivia.questions WHERE CategoryID = @categoryId ORDER BY RAND() LIMIT 1;";
         const string AddPlayerQuery = "INSERT INTO `trivia`.`players` (`Name`) VALUES ('*');";
+        const string GetScoreQuery = "SELECT Score FROM trivia.players WHERE PlayerID = ";
         const string UpdateScoreQuery = "INSERT INTO `trivia`.`players` (`Score`) VALUES ('*');";
+        const string GetTimeQuery = "SELECT Time FROM trivia.players WHERE PlayerID = ";
+        const string UpdateTimeQuery = "INSERT INTO `trivia`.`players` (`Time`) VALUES ('*');";
         const string DeletePlayerQuery = "DELETE FROM trivia.players;" +
                                          "\nALTER TABLE trivia.players AUTO_INCREMENT = 1;";
         const string GetPlayerCountQuery = "SELECT COUNT(`PlayerID`) FROM trivia.players;";
@@ -121,6 +124,18 @@ namespace TriviaAPI
         public void UpdateScore(string score)
         {
             RunAddQuery(UpdateScoreQuery.Replace("*", score));
+        }
+        public string GetPlayerTime(int id)
+        {
+            return RunstringQuery(GetTimeQuery + id);
+        }
+        public string GetPlayerScore(int id)
+        {
+            return RunstringQuery(GetScoreQuery + id);
+        }
+        public void UpdateTime(string time)
+        {
+            RunAddQuery(UpdateTimeQuery.Replace("*", time));
         }
         public string GetPlayerCount()
         {

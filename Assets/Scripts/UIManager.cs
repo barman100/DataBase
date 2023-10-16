@@ -16,19 +16,10 @@ public class UIManager : MonoBehaviour
     public TMP_Text answer4text;
     public APIManager _APIManager;
 
-    /*public void GetPlayerButtonClicked()
-    {
-        _APIManager.GetPlayerName(playerId.text);
-    }*/
     public void GetQuestionButtonClicked()
     {
         _APIManager.GetQuestion(questionId.text);
     }
-    
-    /*public void UpdatePlayerName(string name)
-    {
-       
-    }*/
     public void UpdateQuestion(Question question)
     {
         questiontext.text = question.question;

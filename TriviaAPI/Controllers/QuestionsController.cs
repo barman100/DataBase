@@ -8,7 +8,6 @@ namespace TriviaAPI.Controllers
     [ApiController]
     public class QuestionsController : ControllerBase
     {
-        
         // GET api/<QuestionsController>/5
         [HttpGet("{id}")]
         public Question Get(int id)
@@ -16,6 +15,5 @@ namespace TriviaAPI.Controllers
             DBHandler dBHandler = new DBHandler();
             return dBHandler.GetQuestion(id);
         }
-         
     }
 }

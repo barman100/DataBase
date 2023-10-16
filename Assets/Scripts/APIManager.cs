@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine.Networking;
 using UnityEngine;
 using TMPro;
@@ -18,9 +19,13 @@ public class APIManager : MonoBehaviour
     {
         StartCoroutine(UpdatePlayerScoreCor(score));
     }
-    public void UpdatePlayerTime(float time)
+    public void UpdatePlayerTime(int time)
     {
-        //StartCoroutine(UpdatePlayerNameCor(time));
+        StartCoroutine(UpdatePlayerTimeCor(time));
+    }
+    public void GetTime(string name)
+    {
+        StartCoroutine(GetTimeCor(name));
     }
     public void GetQuestion(string categoryID)
     {
@@ -48,6 +53,38 @@ public class APIManager : MonoBehaviour
         }
     }
 
+    IEnumerator UpdatePlayerTimeCor(int time)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("Time", time);
+
+        using (UnityWebRequest request = UnityWebRequest.Post(API_URL + "Time/", form))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Success " + time);
+            }
+            else
+            {
+                Debug.Log("Failed " + time);
+                Debug.Log("Respond Content" + request.downloadHandler.text);
+            }
+        }
+    }
+    IEnumerator GetTimeCor(string name)
+    {
+        using (UnityWebRequest request = UnityWebRequest.Get(API_URL + "Players/" + name))
+        {
+            yield return request.SendWebRequest();
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                int time = Int32.Parse(request.downloadHandler.text);
+            }
+            
+        }
+    }
     /*IEnumerator GetPlayerNameCor(string id)
     {
         using (UnityWebRequest request = UnityWebRequest.Get(API_URL + "Players/" + id))

@@ -8,12 +8,28 @@ public class ButtonScript : MonoBehaviour
 {
     [SerializeField] TMP_Text answerText;
     [SerializeField] Button button;
+    [SerializeField] APIManager apiManager;
+    private Timer timer;
+    private Score score;
+    private int time;
     public void ButtonClicked()
     {
         if (answerText.text == GameManager.GetCorrectAnswer())
         {
             button.image.color = Color.green;
             Debug.Log("answer is correct");
+            if (timer.currentTime > 0)
+            {
+                score.score += 5;
+                apiManager.UpdatePlayerScore(score.score);
+                apiManager.UpdatePlayerTime(time);
+            }
+
+            if (timer.currentTime <= 0)
+            {
+                score.score += 2;
+                apiManager.UpdatePlayerScore(score.score);
+            }
         }
 
         else
