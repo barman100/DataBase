@@ -5,10 +5,6 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    //public TMP_InputField playerId;
-    //public TMP_Text playerName;
-    
-    public TMP_InputField questionId;
     public TMP_Text questiontext;
     public TMP_Text answer1text;
     public TMP_Text answer2text;
@@ -16,9 +12,9 @@ public class UIManager : MonoBehaviour
     public TMP_Text answer4text;
     public APIManager _APIManager;
 
-    public void GetQuestionButtonClicked()
+    private void Start()
     {
-        _APIManager.GetQuestion(questionId.text);
+        _APIManager.GetQuestion();
     }
     public void UpdateQuestion(Question question)
     {

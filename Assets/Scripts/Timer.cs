@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     
     public float currentTime;
     public int initialTime = 10;
+    public int finalTime;
     
     private void Start()
     {

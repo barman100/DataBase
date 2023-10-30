@@ -14,16 +14,14 @@ namespace TriviaAPI
         MySqlDataReader reader;
 
         const string GetPlayerQuery = "SELECT Name FROM trivia.players WHERE PlayerID = ";
-        const string GetQuestionQuery = "SELECT * FROM trivia.questions WHERE CategoryID = @categoryId ORDER BY RAND() LIMIT 1;";
+        const string GetQuestionQuery = "SELECT * FROM trivia.questions ORDER BY RAND() LIMIT 1;";
         const string AddPlayerQuery = "INSERT INTO `trivia`.`players` (`Name`) VALUES ('*');";
-        const string GetScoreQuery = "SELECT Score FROM trivia.players WHERE PlayerID = ";
-        const string UpdateScoreQuery = "INSERT INTO `trivia`.`players` (`Score`) VALUES ('*');";
-        const string GetTimeQuery = "SELECT Time FROM trivia.players WHERE PlayerID = ";
-        const string UpdateTimeQuery = "INSERT INTO `trivia`.`players` (`Time`) VALUES ('*');";
         const string DeletePlayerQuery = "DELETE FROM trivia.players;" +
                                          "\nALTER TABLE trivia.players AUTO_INCREMENT = 1;";
         const string GetPlayerCountQuery = "SELECT COUNT(`PlayerID`) FROM trivia.players;";
-        public string RunstringQuery(string query)
+        const string GetPlayerScoreQuery = "SELECT Score FROM trivia.players WHERE PlayerID = ";
+        const string GetPlayerTimeQuery = "SELECT Time FROM trivia.players WHERE PlayerID = ";
+        public string RunStringQuery(string query)
         {
             string result = null;
             try
@@ -39,6 +37,26 @@ namespace TriviaAPI
             catch (Exception ex) { }
             Disconnect();
             return result;
+        }
+        public int RunIntQuery(string query)
+        {
+            int score = 0;
+            try
+            {
+                Connect();
+                
+                cmd = new MySqlCommand(query, con);
+                
+                reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    score = reader.GetInt32(0);
+                }
+            }
+            catch (Exception ex) { }
+            Disconnect();
+            return score;
         }
         public void RunDeleteQuery(string query)
         {
@@ -62,7 +80,35 @@ namespace TriviaAPI
             catch (Exception ex) { }
             Disconnect();
         }
-        public Question RunQuestionQuery(string query ,int catigoryId)
+        public void UpdatePlayerScoreQuery(int newScore, int id)
+        {
+            try
+            {
+                Connect();
+                string query = "UPDATE trivia.players SET Score = Score + @newScore WHERE PlayerID = @id";
+                cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@newScore", newScore);
+                cmd.Parameters.AddWithValue("@id", id);
+                reader = cmd.ExecuteReader();
+            }
+            catch (Exception ex) { }
+            Disconnect();
+        }
+        public void UpdatePlayerTimeQuery(int newTime, int id)
+        {
+            try
+            {
+                Connect();
+                string query = "UPDATE trivia.players SET Time = Time + @newTime WHERE PlayerID = @id";
+                cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@newTime", newTime);
+                cmd.Parameters.AddWithValue("@id", id);
+                reader = cmd.ExecuteReader();
+            }
+            catch (Exception ex) { }
+            Disconnect();
+        }
+        public Question RunQuestionQuery(string query)
         {
             Question question = null;
             try
@@ -70,7 +116,6 @@ namespace TriviaAPI
                 Connect();
                 
                 cmd = new MySqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@categoryId", catigoryId);
                 reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
@@ -104,42 +149,41 @@ namespace TriviaAPI
             Disconnect();
             return result;
         }
-        public Question GetQuestion(int id)
+        public string GetPlayerCount()
         {
-            return RunQuestionQuery(GetQuestionQuery, id);
+            return RunPlayerCountQuery(GetPlayerCountQuery);
         }
-        
+        public Question GetQuestion()
+        {
+            return RunQuestionQuery(GetQuestionQuery);
+        }
         public string GetPlayerName(int id)
         {
-            return RunstringQuery(GetPlayerQuery + id);
+            return RunStringQuery(GetPlayerQuery + id);
         }
         public void AddPlayer(string name)
         {
             RunAddQuery(AddPlayerQuery.Replace("*", name));
         }
+        public void UpdateScore(int score, int id)
+        {
+            UpdatePlayerScoreQuery(score, id);
+        }
+        public void UpdateTime(int time, int id)
+        {
+            UpdatePlayerTimeQuery(time, id);
+        }
+        public int GetPlayerTime(int id)
+        {
+            return RunIntQuery(GetPlayerTimeQuery + id);
+        }
+        public int GetPlayerScore(int id )
+        {
+            return RunIntQuery(GetPlayerScoreQuery + id);
+        }
         public void DeletePlayer()
         {
             RunDeleteQuery(DeletePlayerQuery);
-        }
-        public void UpdateScore(string score)
-        {
-            RunAddQuery(UpdateScoreQuery.Replace("*", score));
-        }
-        public string GetPlayerTime(int id)
-        {
-            return RunstringQuery(GetTimeQuery + id);
-        }
-        public string GetPlayerScore(int id)
-        {
-            return RunstringQuery(GetScoreQuery + id);
-        }
-        public void UpdateTime(string time)
-        {
-            RunAddQuery(UpdateTimeQuery.Replace("*", time));
-        }
-        public string GetPlayerCount()
-        {
-            return RunPlayerCountQuery(GetPlayerCountQuery);
         }
 
 

@@ -11,17 +11,17 @@ namespace TriviaAPI.Controllers
     {
         // GET api/<ScoreController>/5
         [HttpGet("{id}")]
-        public string GetScore(int id)
+        public int GetScore(int id)
         {
             DBHandler dBHandler = new DBHandler();
             return dBHandler.GetPlayerScore(id);
         }
         // POST api/<ScoreController>
         [HttpPost]
-        public void Post([FromForm] string score)
+        public void Post([FromForm] int score, [FromForm]int id)
         {
             DBHandler dBHandler = new DBHandler();
-            dBHandler.UpdateScore(score);
+            dBHandler.UpdateScore(score, id);
         }
     }
 }

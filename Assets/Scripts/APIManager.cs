@@ -10,32 +10,37 @@ public class APIManager : MonoBehaviour
     [SerializeField] UIManager uIManager;
     const string API_URL = "https://localhost:7014/api/";
 
+    public int score;
+    public int time;
+
+    public void UpdatePlayerScore(int score, int id)
+    {
+        StartCoroutine(UpdatePlayerScoreCor(score, id));
+    }
+    public void UpdatePlayerTime(int time, int id)
+    {
+        StartCoroutine(UpdatePlayerTimeCor(time, id));
+    }
+    public int GetScore(int id)
+    {
+        StartCoroutine(GetScoreCor(id));
+        return score;
+    }
+    public int GetTime(int id)
+    {
+        StartCoroutine(GetTimeCor(id));
+        return time;
+    }
+    public void GetQuestion()
+    {
+        StartCoroutine(GetQuestionCor());
+    }
     
-    /*public void GetPlayerName(string id)
-    {
-        StartCoroutine(GetPlayerNameCor(id));
-    }*/
-    public void UpdatePlayerScore(int score)
-    {
-        StartCoroutine(UpdatePlayerScoreCor(score));
-    }
-    public void UpdatePlayerTime(int time)
-    {
-        StartCoroutine(UpdatePlayerTimeCor(time));
-    }
-    public void GetTime(string name)
-    {
-        StartCoroutine(GetTimeCor(name));
-    }
-    public void GetQuestion(string categoryID)
-    {
-        StartCoroutine(GetQuestionCor(categoryID));
-    }
-    
-    IEnumerator UpdatePlayerScoreCor(int score)
+    IEnumerator UpdatePlayerScoreCor(int score, int id)
     {
         WWWForm form = new WWWForm();
         form.AddField("Score", score);
+        form.AddField("PlayerID", id);
 
         using (UnityWebRequest request = UnityWebRequest.Post(API_URL + "Score/", form))
         {
@@ -43,20 +48,20 @@ public class APIManager : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.Success)
             {
-                Debug.Log("Success " + score);
+                Debug.Log($"Success Score {score} ID {id}");
             }
             else
             {
-                Debug.Log("Failed " + score);
+                Debug.Log($"Failed Score {score} ID {id}");
                 Debug.Log("Respond Content" + request.downloadHandler.text);
             }
         }
     }
-
-    IEnumerator UpdatePlayerTimeCor(int time)
+    IEnumerator UpdatePlayerTimeCor(int time, int id)
     {
         WWWForm form = new WWWForm();
         form.AddField("Time", time);
+        form.AddField("PlayerID", id);
 
         using (UnityWebRequest request = UnityWebRequest.Post(API_URL + "Time/", form))
         {
@@ -64,43 +69,49 @@ public class APIManager : MonoBehaviour
 
             if (request.result == UnityWebRequest.Result.Success)
             {
-                Debug.Log("Success " + time);
+                Debug.Log($"Success Time {time} ID {id}");
             }
             else
             {
-                Debug.Log("Failed " + time);
+                Debug.Log($"Failed Time {time} ID {id}");
                 Debug.Log("Respond Content" + request.downloadHandler.text);
             }
         }
     }
-    IEnumerator GetTimeCor(string name)
+    IEnumerator GetTimeCor(int id)
     {
-        using (UnityWebRequest request = UnityWebRequest.Get(API_URL + "Players/" + name))
+        using (UnityWebRequest request = UnityWebRequest.Get(API_URL + "Time/" + id))
         {
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {
-                int time = Int32.Parse(request.downloadHandler.text);
+                time = int.Parse(request.downloadHandler.text);
             }
-            
+            else
+            {
+                Debug.LogError("Failed to retrieve the score.");
+            }
         }
     }
-    /*IEnumerator GetPlayerNameCor(string id)
+    IEnumerator GetScoreCor(int id)
     {
-        using (UnityWebRequest request = UnityWebRequest.Get(API_URL + "Players/" + id))
+        using (UnityWebRequest request = UnityWebRequest.Get(API_URL + "Score/" + id))
         {
             yield return request.SendWebRequest();
-            switch (request.result)
+            if (request.result == UnityWebRequest.Result.Success)
             {
-                case UnityWebRequest.Result.Success:
-                    uIManager.UpdatePlayerName(request.downloadHandler.text);
-                    break;
+                score = int.Parse(request.downloadHandler.text);
             }
+            else
+            {
+                Debug.LogError("Failed to retrieve the score.");
+            }
+
         }
-    }*/
-    IEnumerator GetQuestionCor(string categoryID)
+    }
+    IEnumerator GetQuestionCor()
     {
-        using (UnityWebRequest request = UnityWebRequest.Get(API_URL + "Questions/" + categoryID))
+        using (UnityWebRequest request = UnityWebRequest.Get(API_URL + "Questions/"))
         {
             yield return request.SendWebRequest();
             switch (request.result)

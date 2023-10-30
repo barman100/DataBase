@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,10 +16,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private TMP_InputField playerName;
     [SerializeField] private MainMenuAPIManager _MainMenuAPIManager;
     private int playerCount = 0;
-    private int checkcount; 
-
-
     private bool CreditsShowing = false;
+    public int playerID;
 
     private void Start()
     {
@@ -33,8 +30,13 @@ public class MainMenuManager : MonoBehaviour
         if (WaitScreen.isActiveAndEnabled == true)
         {
             playerCount = _MainMenuAPIManager.GetPlayerCount();
-            if (playerCount == 2)
+            if (playerCount == 1)
+                playerID = 1;
+            else if (playerCount == 2)
+            {
+                playerID = 2;
                 StartGame();
+            }
         }
         
     }
@@ -56,14 +58,12 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-
     public void ShowCredits()
     {
         
         if (CreditsShowing) { Credits.SetActive(false); CreditsShowing = false; ReturnButton.gameObject.SetActive(false); }
         else if (!CreditsShowing) { Credits.SetActive(true); CreditsShowing = true; ReturnButton.gameObject.SetActive(true); }
     }
-
     public void ReturnButtonClicked()
     {
         if (NameScreen.isActiveAndEnabled == true)

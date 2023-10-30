@@ -10,17 +10,17 @@ namespace TriviaAPI.Controllers
     {
         // GET api/<TimeController>/5
         [HttpGet("{id}")]
-        public string GetTime(int id)
+        public int GetTime(int id)
         {
             DBHandler dBHandler = new DBHandler();
             return dBHandler.GetPlayerTime(id);
         }
         // POST api/<TimeController>
         [HttpPost]
-        public void Post([FromForm] string time)
+        public void Post([FromForm] int time, [FromForm]int id)
         {
             DBHandler dBHandler = new DBHandler();
-            dBHandler.UpdateTime(time);
+            dBHandler.UpdateTime(time, id);
         }
     }
 }

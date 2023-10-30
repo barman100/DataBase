@@ -29,7 +29,5 @@ public class GameManager : MonoBehaviour
             default:
                 throw new Exception("correct question value out of bound");
         }
-
-        
     }
 }
