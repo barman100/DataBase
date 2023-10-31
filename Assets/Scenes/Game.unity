@@ -549,6 +549,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Answer2
       objectReference: {fileID: 0}
+    - target: {fileID: 6111160951036745192, guid: ea73f1056f63c194f83bbaa332316f54, type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 110194882}
+    - target: {fileID: 6111160951036745192, guid: ea73f1056f63c194f83bbaa332316f54, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1923874915}
+    - target: {fileID: 6111160951036745192, guid: ea73f1056f63c194f83bbaa332316f54, type: 3}
+      propertyPath: apiManager
+      value: 
+      objectReference: {fileID: 1471196329}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1289,6 +1301,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Answer3
       objectReference: {fileID: 0}
+    - target: {fileID: 6111160951036745192, guid: ea73f1056f63c194f83bbaa332316f54, type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 110194882}
+    - target: {fileID: 6111160951036745192, guid: ea73f1056f63c194f83bbaa332316f54, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1923874915}
+    - target: {fileID: 6111160951036745192, guid: ea73f1056f63c194f83bbaa332316f54, type: 3}
+      propertyPath: apiManager
+      value: 
+      objectReference: {fileID: 1471196329}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1391,6 +1415,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Answer1
       objectReference: {fileID: 0}
+    - target: {fileID: 6111160951036745192, guid: ea73f1056f63c194f83bbaa332316f54, type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 110194882}
+    - target: {fileID: 6111160951036745192, guid: ea73f1056f63c194f83bbaa332316f54, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1923874915}
+    - target: {fileID: 6111160951036745192, guid: ea73f1056f63c194f83bbaa332316f54, type: 3}
+      propertyPath: apiManager
+      value: 
+      objectReference: {fileID: 1471196329}
     - target: {fileID: 7869032056575634950, guid: ea73f1056f63c194f83bbaa332316f54, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -2205,6 +2241,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Answer4
       objectReference: {fileID: 0}
+    - target: {fileID: 6111160951036745192, guid: ea73f1056f63c194f83bbaa332316f54, type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 110194882}
+    - target: {fileID: 6111160951036745192, guid: ea73f1056f63c194f83bbaa332316f54, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1923874915}
+    - target: {fileID: 6111160951036745192, guid: ea73f1056f63c194f83bbaa332316f54, type: 3}
+      propertyPath: apiManager
+      value: 
+      objectReference: {fileID: 1471196329}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

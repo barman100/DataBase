@@ -8,7 +8,7 @@ using TMPro;
 public class APIManager : MonoBehaviour
 {
     [SerializeField] UIManager uIManager;
-    const string API_URL = "https://localhost:7014/api/";
+    const string API_URL = "https://localhost:7006/api/";
 
     
     /*public void GetPlayerName(string id)
@@ -35,6 +35,7 @@ public class APIManager : MonoBehaviour
     IEnumerator UpdatePlayerScoreCor(int score)
     {
         WWWForm form = new WWWForm();
+        form.AddField("Name", MainMenuManager.PlayerName);
         form.AddField("Score", score);
 
         using (UnityWebRequest request = UnityWebRequest.Post(API_URL + "Score/", form))

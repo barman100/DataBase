@@ -8,7 +8,7 @@ namespace TriviaAPI
 {
     public class DBHandler
     {
-        const string CON_STR = "Server=localhost; database=trivia; UID=root; password=Sami2110.";
+        const string CON_STR = "Server=localhost; database=trivia; UID=root; password=123123Aa*";
         MySqlConnection con;
         MySqlCommand cmd;
         MySqlDataReader reader;

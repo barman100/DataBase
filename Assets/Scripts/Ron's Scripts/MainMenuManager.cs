@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,7 +14,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private TMP_InputField playerName;
     [SerializeField] private MainMenuAPIManager _MainMenuAPIManager;
     private int playerCount = 0;
-    private int checkcount; 
+    public static string PlayerName;
 
 
     private bool CreditsShowing = false;
@@ -47,6 +44,7 @@ public class MainMenuManager : MonoBehaviour
     {
         if (NameInputField.text != "")
         {
+            PlayerName = playerName.text;
             _MainMenuAPIManager.UpdatePlayerName(playerName.text);
             NameScreen.gameObject.SetActive(false);
             WaitScreen.gameObject.SetActive(true);

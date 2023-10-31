@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.SearchService;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 
 public class SoundManager : MonoBehaviour
 {

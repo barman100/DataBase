@@ -6,7 +6,7 @@ using TMPro;
 
 public class MainMenuAPIManager : MonoBehaviour
 {
-    const string API_URL = "https://localhost:7014/api/";
+    const string API_URL = "https://localhost:7006/api/";
     private int count;
     public void UpdatePlayerName(string name)
     {

@@ -9,8 +9,8 @@ public class ButtonScript : MonoBehaviour
     [SerializeField] TMP_Text answerText;
     [SerializeField] Button button;
     [SerializeField] APIManager apiManager;
-    private Timer timer;
-    private Score score;
+    [SerializeField] private Timer timer;
+    [SerializeField] private Score score;
     private int time;
     public void ButtonClicked()
     {
