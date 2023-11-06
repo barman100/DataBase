@@ -8,8 +8,8 @@ public class Timer : MonoBehaviour
     [SerializeField] private Text timerText;
     
     public float currentTime;
-    public int initialTime = 10;
-    public int finalTime;
+    public float initialTime = 10;
+    public float finalTime;
     
     private void Start()
     {

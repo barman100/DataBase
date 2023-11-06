@@ -10,40 +10,44 @@ public class APIManager : MonoBehaviour
     [SerializeField] UIManager uIManager;
     const string API_URL = "https://localhost:7014/api/";
 
-    public int score;
-    public int time;
-
     public void UpdatePlayerScore(int score, int id)
     {
         StartCoroutine(UpdatePlayerScoreCor(score, id));
     }
-    public void UpdatePlayerTime(int time, int id)
+    public void UpdatePlayerTime(float time, int id)
     {
         StartCoroutine(UpdatePlayerTimeCor(time, id));
     }
-    public int GetScore(int id)
+    public void GetScore(int id, Action<int> callback)
     {
-        StartCoroutine(GetScoreCor(id));
-        return score;
+        StartCoroutine(GetScoreCor(id, callback));
     }
-    public int GetTime(int id)
+    public void GetTime(int id, Action<float> callback)
     {
-        StartCoroutine(GetTimeCor(id));
-        return time;
+        StartCoroutine(GetTimeCor(id, callback));
     }
     public void GetQuestion()
     {
         StartCoroutine(GetQuestionCor());
     }
-    
+    public void GetPlayerName(int id)
+    {
+        StartCoroutine(GetPlayerNameCor(id));
+    }
     IEnumerator UpdatePlayerScoreCor(int score, int id)
     {
-        WWWForm form = new WWWForm();
-        form.AddField("Score", score);
-        form.AddField("PlayerID", id);
+        string url = API_URL + "Score/";
 
-        using (UnityWebRequest request = UnityWebRequest.Post(API_URL + "Score/", form))
+        
+        string jsonPayload = $"{{\"Score\":{score},\"PlayerID\":{id}}}";
+        byte[] jsonBytes = System.Text.Encoding.UTF8.GetBytes(jsonPayload);
+
+        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
         {
+            request.uploadHandler = new UploadHandlerRaw(jsonBytes);
+            request.uploadHandler.contentType = "application/json";
+            request.downloadHandler = new DownloadHandlerBuffer();
+
             yield return request.SendWebRequest();
 
             if (request.result == UnityWebRequest.Result.Success)
@@ -53,18 +57,23 @@ public class APIManager : MonoBehaviour
             else
             {
                 Debug.Log($"Failed Score {score} ID {id}");
-                Debug.Log("Respond Content" + request.downloadHandler.text);
+                Debug.Log("Response Content: " + request.downloadHandler.text);
             }
         }
     }
-    IEnumerator UpdatePlayerTimeCor(int time, int id)
+    IEnumerator UpdatePlayerTimeCor(float time, int id)
     {
-        WWWForm form = new WWWForm();
-        form.AddField("Time", time);
-        form.AddField("PlayerID", id);
+        string url = API_URL + "Time/";
 
-        using (UnityWebRequest request = UnityWebRequest.Post(API_URL + "Time/", form))
+        string jsonPayload = $"{{\"Time\":{time},\"PlayerID\":{id}}}";
+        byte[] jsonBytes = System.Text.Encoding.UTF8.GetBytes(jsonPayload);
+
+        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
         {
+            request.uploadHandler = new UploadHandlerRaw(jsonBytes);
+            request.uploadHandler.contentType = "application/json";
+            request.downloadHandler = new DownloadHandlerBuffer();
+
             yield return request.SendWebRequest();
 
             if (request.result == UnityWebRequest.Result.Success)
@@ -74,33 +83,35 @@ public class APIManager : MonoBehaviour
             else
             {
                 Debug.Log($"Failed Time {time} ID {id}");
-                Debug.Log("Respond Content" + request.downloadHandler.text);
+                Debug.Log("Response Content: " + request.downloadHandler.text);
             }
         }
     }
-    IEnumerator GetTimeCor(int id)
+    IEnumerator GetTimeCor(int id, Action<float> callback)
     {
         using (UnityWebRequest request = UnityWebRequest.Get(API_URL + "Time/" + id))
         {
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {
-                time = int.Parse(request.downloadHandler.text);
+                float time = float.Parse(request.downloadHandler.text);
+                callback(time);
             }
             else
             {
-                Debug.LogError("Failed to retrieve the score.");
+                Debug.LogError("Failed to retrieve the time.");
             }
         }
     }
-    IEnumerator GetScoreCor(int id)
+    IEnumerator GetScoreCor(int id, Action<int> callback)
     {
         using (UnityWebRequest request = UnityWebRequest.Get(API_URL + "Score/" + id))
         {
             yield return request.SendWebRequest();
             if (request.result == UnityWebRequest.Result.Success)
             {
-                score = int.Parse(request.downloadHandler.text);
+                int score = int.Parse(request.downloadHandler.text);
+                callback(score);
             }
             else
             {
@@ -123,6 +134,22 @@ public class APIManager : MonoBehaviour
                     uIManager.UpdatAnswers(question);
                     GameManager.CurrentQuestion = question;
                     break;
+            }
+        }
+    }
+    IEnumerator GetPlayerNameCor(int id)
+    {
+        using (UnityWebRequest request = UnityWebRequest.Get(API_URL + "Players/" + id))
+        {
+            yield return request.SendWebRequest();
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                string playerName = request.downloadHandler.text;
+                uIManager.UpdateWinner(playerName);
+            }
+            else
+            {
+                Debug.LogError("Failed to retrieve the name.");
             }
         }
     }

@@ -1,23 +1,55 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameEndManager : MonoBehaviour
 {
     [SerializeField] APIManager apiManager;
+    [SerializeField] Canvas GamePlay;
+    [SerializeField] Canvas GameEnd;
+
     
     public void EndGame()
     {
-        if (apiManager.GetScore(1) > apiManager.GetScore(2))
-            Debug.Log("Player 1 Win");
-        else if (apiManager.GetScore(2) > apiManager.GetScore(1))
-            Debug.Log("Player 2 Win");
-        else
+        apiManager.GetScore(1, score1 =>
         {
-            if (apiManager.GetTime(1) > apiManager.GetTime(2))
-                Debug.Log("Player 1 Win");
-            else if (apiManager.GetTime(2) > apiManager.GetTime(1))
-                Debug.Log("Player 2 Win");
-        }
+            apiManager.GetScore(2, score2 =>
+            {
+                apiManager.GetTime(1, time1 =>
+                {
+                    apiManager.GetTime(2, time2 =>
+                    {
+                        if (score1 > score2)
+                        {
+                            apiManager.GetPlayerName(1);
+                            GamePlay.gameObject.SetActive(false);
+                            GameEnd.gameObject.SetActive(true);
+                        }
+                        else if (score2 > score1)
+                        {
+                            apiManager.GetPlayerName(2);
+                            GamePlay.gameObject.SetActive(false);
+                            GameEnd.gameObject.SetActive(true);
+                        }
+                        else
+                        {
+                            if (time1 < time2)
+                            {
+                                apiManager.GetPlayerName(1);
+                                GamePlay.gameObject.SetActive(false);
+                                GameEnd.gameObject.SetActive(true);
+                            }
+                            else if (time2 < time1)
+                            {
+                                apiManager.GetPlayerName(2);
+                                GamePlay.gameObject.SetActive(false);
+                                GameEnd.gameObject.SetActive(true);
+                            }
+                        }
+                    });
+                });
+            });
+        });
     }
 }

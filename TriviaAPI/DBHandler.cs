@@ -58,6 +58,26 @@ namespace TriviaAPI
             Disconnect();
             return score;
         }
+        public float RunFloatQuery(string query)
+        {
+            float score = 0;
+            try
+            {
+                Connect();
+
+                cmd = new MySqlCommand(query, con);
+
+                reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    score = reader.GetFloat(0);
+                }
+            }
+            catch (Exception ex) { }
+            Disconnect();
+            return score;
+        }
         public void RunDeleteQuery(string query)
         {
             try
@@ -94,7 +114,7 @@ namespace TriviaAPI
             catch (Exception ex) { }
             Disconnect();
         }
-        public void UpdatePlayerTimeQuery(int newTime, int id)
+        public void UpdatePlayerTimeQuery(float newTime, int id)
         {
             try
             {
@@ -169,13 +189,13 @@ namespace TriviaAPI
         {
             UpdatePlayerScoreQuery(score, id);
         }
-        public void UpdateTime(int time, int id)
+        public void UpdateTime(float time, int id)
         {
             UpdatePlayerTimeQuery(time, id);
         }
-        public int GetPlayerTime(int id)
+        public float GetPlayerTime(int id)
         {
-            return RunIntQuery(GetPlayerTimeQuery + id);
+            return RunFloatQuery(GetPlayerTimeQuery + id);
         }
         public int GetPlayerScore(int id )
         {

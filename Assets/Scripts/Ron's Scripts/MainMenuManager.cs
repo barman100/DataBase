@@ -17,7 +17,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private MainMenuAPIManager _MainMenuAPIManager;
     private int playerCount = 0;
     private bool CreditsShowing = false;
-    public int playerID;
+    public static int playerID;
 
     private void Start()
     {

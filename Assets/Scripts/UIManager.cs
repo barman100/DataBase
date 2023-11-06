@@ -10,8 +10,9 @@ public class UIManager : MonoBehaviour
     public TMP_Text answer2text;
     public TMP_Text answer3text;
     public TMP_Text answer4text;
+    public TMP_Text gameEndText;
     public APIManager _APIManager;
-
+    
     private void Start()
     {
         _APIManager.GetQuestion();
@@ -26,5 +27,9 @@ public class UIManager : MonoBehaviour
         answer2text.text =  question.ans2;
         answer3text.text =  question.ans3;
         answer4text.text =  question.ans4;
+    }
+    public void UpdateWinner(string name)
+    {
+        gameEndText.text = (name + " Win");
     }
 }

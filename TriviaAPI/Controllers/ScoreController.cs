@@ -18,8 +18,10 @@ namespace TriviaAPI.Controllers
         }
         // POST api/<ScoreController>
         [HttpPost]
-        public void Post([FromForm] int score, [FromForm]int id)
+        public void Post([FromBody] ScoreData data)
         {
+            int score = data.Score;
+            int id = data.PlayerID;
             DBHandler dBHandler = new DBHandler();
             dBHandler.UpdateScore(score, id);
         }
