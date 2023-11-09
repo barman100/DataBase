@@ -17,7 +17,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private MainMenuAPIManager _MainMenuAPIManager;
     private int playerCount = 0;
     private bool CreditsShowing = false;
-    public static int playerID;
+    public static int playerID =0 ;
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class MainMenuManager : MonoBehaviour
     }
     private void Update()
     {
-        if (WaitScreen.isActiveAndEnabled == true)
+        if (WaitScreen.isActiveAndEnabled == true && playerID == 0)
         {
             playerCount = _MainMenuAPIManager.GetPlayerCount();
             if (playerCount == 1)
