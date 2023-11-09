@@ -8,7 +8,7 @@ using TMPro;
 public class APIManager : MonoBehaviour
 {
     [SerializeField] UIManager uIManager;
-    const string API_URL = "https://localhost:7006/api/";
+    const string API_URL = "https://localhost:7014/api/";
 
     
     /*public void GetPlayerName(string id)

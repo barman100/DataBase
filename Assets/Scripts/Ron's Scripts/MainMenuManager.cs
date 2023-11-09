@@ -18,6 +18,7 @@ public class MainMenuManager : MonoBehaviour
 
 
     private bool CreditsShowing = false;
+    public int playerID;
 
     private void Start()
     {
