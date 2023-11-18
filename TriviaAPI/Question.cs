@@ -1,6 +1,6 @@
 ﻿namespace TriviaAPI
 {
-    [System.Serializable]
+    [Serializable]
     public class Question
     {
         public string question { get; set; }

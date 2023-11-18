@@ -1,93 +1,60 @@
-C:\Users\samis\source\repos\Trivia\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\samis\source\repos\Trivia\bin\Debug\net6.0\appsettings.json
-C:\Users\samis\source\repos\Trivia\bin\Debug\net6.0\TriviaAPI.exe
-C:\Users\samis\source\repos\Trivia\bin\Debug\net6.0\TriviaAPI.deps.json
-C:\Users\samis\source\repos\Trivia\bin\Debug\net6.0\TriviaAPI.runtimeconfig.json
-C:\Users\samis\source\repos\Trivia\bin\Debug\net6.0\TriviaAPI.dll
-C:\Users\samis\source\repos\Trivia\bin\Debug\net6.0\TriviaAPI.pdb
-C:\Users\samis\source\repos\Trivia\bin\Debug\net6.0\Microsoft.OpenApi.dll
-C:\Users\samis\source\repos\Trivia\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\samis\source\repos\Trivia\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\samis\source\repos\Trivia\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\TriviaAPI.csproj.AssemblyReference.cache
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\TriviaAPI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\TriviaAPI.AssemblyInfoInputs.cache
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\TriviaAPI.AssemblyInfo.cs
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\TriviaAPI.csproj.CoreCompileInputs.cache
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\TriviaAPI.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\TriviaAPI.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\staticwebassets\msbuild.TriviaAPI.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\staticwebassets\msbuild.build.TriviaAPI.props
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.TriviaAPI.props
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.TriviaAPI.props
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\staticwebassets.pack.json
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\staticwebassets.build.json
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\scopedcss\bundle\TriviaAPI.styles.css
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\TriviaAPI.csproj.CopyComplete
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\TriviaAPI.dll
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\refint\TriviaAPI.dll
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\TriviaAPI.pdb
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\TriviaAPI.genruntimeconfig.cache
-C:\Users\samis\source\repos\Trivia\obj\Debug\net6.0\ref\TriviaAPI.dll
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\TriviaAPI.csproj.AssemblyReference.cache
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\TriviaAPI.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\TriviaAPI.AssemblyInfoInputs.cache
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\TriviaAPI.AssemblyInfo.cs
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\TriviaAPI.csproj.CoreCompileInputs.cache
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\TriviaAPI.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\TriviaAPI.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\TriviaAPI.dll
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\refint\TriviaAPI.dll
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\TriviaAPI.pdb
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\appsettings.Development.json
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\appsettings.json
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\TriviaAPI.exe
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\TriviaAPI.deps.json
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\TriviaAPI.runtimeconfig.json
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\TriviaAPI.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\TriviaAPI.pdb
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\staticwebassets\msbuild.TriviaAPI.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.TriviaAPI.props
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.TriviaAPI.props
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.TriviaAPI.props
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\staticwebassets.pack.json
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\staticwebassets.build.json
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\scopedcss\bundle\TriviaAPI.styles.css
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\TriviaAPI.csproj.CopyComplete
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\TriviaAPI.genruntimeconfig.cache
-C:\Users\samis\source\repos\TriviaAPI\obj\Debug\net6.0\ref\TriviaAPI.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\Google.Protobuf.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\K4os.Compression.LZ4.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\K4os.Compression.LZ4.Streams.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\K4os.Hash.xxHash.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\MySql.Data.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\BouncyCastle.Crypto.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\System.Drawing.Common.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\System.IO.Pipelines.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\System.Security.Permissions.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\System.Text.Encodings.Web.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\System.Text.Json.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\System.Windows.Extensions.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\ZstdSharp.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\runtimes\win-x64\native\comerr64.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\runtimes\win-x64\native\gssapi64.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\runtimes\win-x64\native\k5sprt64.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\runtimes\win-x64\native\krb5_64.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\runtimes\win-x64\native\krbcc64.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-C:\Users\samis\source\repos\TriviaAPI\bin\Debug\net6.0\libman.json
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\appsettings.json
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\TriviaAPI.exe
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\TriviaAPI.deps.json
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\TriviaAPI.runtimeconfig.json
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\TriviaAPI.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\TriviaAPI.pdb
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\TriviaAPI.csproj.AssemblyReference.cache
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\TriviaAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\TriviaAPI.AssemblyInfoInputs.cache
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\TriviaAPI.AssemblyInfo.cs
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\TriviaAPI.csproj.CoreCompileInputs.cache
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\TriviaAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\TriviaAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\staticwebassets\msbuild.TriviaAPI.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.TriviaAPI.props
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.TriviaAPI.props
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.TriviaAPI.props
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\scopedcss\bundle\TriviaAPI.styles.css
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\TriviaAPI.csproj.CopyComplete
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\TriviaAPI.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\refint\TriviaAPI.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\TriviaAPI.pdb
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\TriviaAPI.genruntimeconfig.cache
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\obj\Debug\net6.0\ref\TriviaAPI.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\Google.Protobuf.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\K4os.Compression.LZ4.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\K4os.Compression.LZ4.Streams.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\K4os.Hash.xxHash.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\MySql.Data.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\System.IO.Pipelines.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\ZstdSharp.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\runtimes\win-x64\native\comerr64.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\runtimes\win-x64\native\gssapi64.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\runtimes\win-x64\native\krb5_64.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+C:\Users\Bar osher perez\Desktop\Tiltan\DataBase\TriviaAPI\TriviaAPI\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll

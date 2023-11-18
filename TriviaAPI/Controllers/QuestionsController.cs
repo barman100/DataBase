@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace TriviaAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -12,7 +10,13 @@ namespace TriviaAPI.Controllers
         public Question Get()
         {
             DBHandler dBHandler = new DBHandler();
-            return dBHandler.GetQuestion();
+            Question question = dBHandler.GetQuestion();
+
+            if (question == null)
+            {
+                throw new NullReferenceException("Question value is null");
+            }
+            return question;
         }
     }
 }

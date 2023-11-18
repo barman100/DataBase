@@ -1,41 +1,40 @@
-﻿using MySql.Data;
-using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Asn1.X509;
-using System.Collections.Generic;
-using System.Xml.Linq;
+﻿using MySql.Data.MySqlClient;
 
 namespace TriviaAPI
 {
     public class DBHandler
     {
-        const string CON_STR = "Server=localhost; database=trivia; UID=root; password=Sami2110.";
-        MySqlConnection con;
-        MySqlCommand cmd;
-        MySqlDataReader reader;
+        MySqlConnection? _connection;
+        MySqlCommand? _cmd;
+        MySqlDataReader? _reader;
 
-        const string GetPlayerQuery = "SELECT Name FROM trivia.players WHERE PlayerID = ";
-        const string GetQuestionQuery = "SELECT * FROM trivia.questions ORDER BY RAND() LIMIT 1;";
-        const string AddPlayerQuery = "INSERT INTO `trivia`.`players` (`Name`) VALUES ('*');";
-        const string DeletePlayerQuery = "DELETE FROM trivia.players;" +
+        const string CONNECTION_STRING = "Server=localhost; database=trivia; UID=root; password=123123Aa*";
+        const string GET_PLAYER_QUERY = "SELECT Name FROM trivia.players WHERE PlayerID = ";
+        const string GET_QUESTION_QUERY = "SELECT * FROM trivia.questions ORDER BY RAND() LIMIT 1;";
+        const string ADD_PLAYER_QUERY = "INSERT INTO `trivia`.`players` (`Name`) VALUES ('*');";
+        const string DELETE_PLAYER_QUERY = "DELETE FROM trivia.players;" +
                                          "\nALTER TABLE trivia.players AUTO_INCREMENT = 1;";
-        const string GetPlayerCountQuery = "SELECT COUNT(`PlayerID`) FROM trivia.players;";
-        const string GetPlayerScoreQuery = "SELECT Score FROM trivia.players WHERE PlayerID = ";
-        const string GetPlayerTimeQuery = "SELECT Time FROM trivia.players WHERE PlayerID = ";
-        const string GetQuestionCountQuery = "SELECT QuestionCount FROM trivia.players WHERE PlayerID = ";
+        const string GET_PLAYER_COUNT_QUERY = "SELECT COUNT(`PlayerID`) FROM trivia.players;";
+        const string GET_PLAYER_SCORE_QUERY = "SELECT Score FROM trivia.players WHERE PlayerID = ";
+        const string GET_PLAYER_TIME_QUERY = "SELECT Time FROM trivia.players WHERE PlayerID = ";
+        const string GET_QUESTION_COUNT_QUERY = "SELECT QuestionCount FROM trivia.players WHERE PlayerID = ";
         public string RunStringQuery(string query)
         {
-            string result = null;
+            string result = "";
             try
             {
                 Connect();
-                cmd = new MySqlCommand(query, con);
-                reader = cmd.ExecuteReader();
-                if (reader.Read())
+                _cmd = new MySqlCommand(query, _connection);
+                _reader = _cmd.ExecuteReader();
+                if (_reader.Read())
                 {
-                    result = reader.GetString(0);
+                    result = _reader.GetString(0);
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             Disconnect();
             return result;
         }
@@ -46,16 +45,20 @@ namespace TriviaAPI
             {
                 Connect();
                 
-                cmd = new MySqlCommand(query, con);
+                _cmd = new MySqlCommand(query, _connection);
                 
-                reader = cmd.ExecuteReader();
+                _reader = _cmd.ExecuteReader();
 
-                if (reader.Read())
+                if (_reader.Read())
                 {
-                    score = reader.GetInt32(0);
+                    score = _reader.GetInt32(0);
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            { 
+              throw new Exception(ex.Message);
+            }
+
             Disconnect();
             return score;
         }
@@ -66,16 +69,19 @@ namespace TriviaAPI
             {
                 Connect();
 
-                cmd = new MySqlCommand(query, con);
+                _cmd = new MySqlCommand(query, _connection);
 
-                reader = cmd.ExecuteReader();
+                _reader = _cmd.ExecuteReader();
 
-                if (reader.Read())
+                if (_reader.Read())
                 {
-                    score = reader.GetFloat(0);
+                    score = _reader.GetFloat(0);
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             Disconnect();
             return score;
         }
@@ -84,10 +90,13 @@ namespace TriviaAPI
             try
             {
                 Connect();
-                cmd = new MySqlCommand(query, con);
-                reader = cmd.ExecuteReader();
+                _cmd = new MySqlCommand(query, _connection);
+                _reader = _cmd.ExecuteReader();
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             Disconnect();
         }
         public void RunAddQuery(string query)
@@ -95,10 +104,13 @@ namespace TriviaAPI
             try
             {
                 Connect();
-                cmd = new MySqlCommand(query, con);
-                reader = cmd.ExecuteReader();
+                _cmd = new MySqlCommand(query, _connection);
+                _reader = _cmd.ExecuteReader();
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             Disconnect();
         }
         public void UpdatePlayerScoreQuery(int newScore, int id)
@@ -107,12 +119,15 @@ namespace TriviaAPI
             {
                 Connect();
                 string query = "UPDATE trivia.players SET Score = Score + @newScore WHERE PlayerID = @id";
-                cmd = new MySqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@newScore", newScore);
-                cmd.Parameters.AddWithValue("@id", id);
-                reader = cmd.ExecuteReader();
+                _cmd = new MySqlCommand(query, _connection);
+                _cmd.Parameters.AddWithValue("@newScore", newScore);
+                _cmd.Parameters.AddWithValue("@id", id);
+                _reader = _cmd.ExecuteReader();
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             Disconnect();
         }
         public void UpdatePlayerTimeQuery(float newTime, int id)
@@ -121,12 +136,15 @@ namespace TriviaAPI
             {
                 Connect();
                 string query = "UPDATE trivia.players SET Time = Time + @newTime WHERE PlayerID = @id";
-                cmd = new MySqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@newTime", newTime);
-                cmd.Parameters.AddWithValue("@id", id);
-                reader = cmd.ExecuteReader();
+                _cmd = new MySqlCommand(query, _connection);
+                _cmd.Parameters.AddWithValue("@newTime", newTime);
+                _cmd.Parameters.AddWithValue("@id", id);
+                _reader = _cmd.ExecuteReader();
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             Disconnect();
         }
         public void UpdatePlayerQuestionCountQuery(int newCount, int id)
@@ -135,70 +153,79 @@ namespace TriviaAPI
             {
                 Connect();
                 string query = "UPDATE trivia.players SET QuestionCount = @newCount WHERE PlayerID = @id";
-                cmd = new MySqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@newCount", newCount);
-                cmd.Parameters.AddWithValue("@id", id);
-                reader = cmd.ExecuteReader();
+                _cmd = new MySqlCommand(query, _connection);
+                _cmd.Parameters.AddWithValue("@newCount", newCount);
+                _cmd.Parameters.AddWithValue("@id", id);
+                _reader = _cmd.ExecuteReader();
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             Disconnect();
         }
         public Question RunQuestionQuery(string query)
         {
-            Question question = null;
+            Question? question = null;
             try
             {
                 Connect();
                 
-                cmd = new MySqlCommand(query, con);
-                reader = cmd.ExecuteReader();
-                if (reader.Read())
+                _cmd = new MySqlCommand(query, _connection);
+                _reader = _cmd.ExecuteReader();
+                if (_reader.Read())
                 {
-                    question = new Question(reader.GetString("Question"),
-                                            reader.GetString("Answer1"),
-                                            reader.GetString("Answer2"),
-                                            reader.GetString("Answer3"),
-                                            reader.GetString("Answer4"),
-                                            reader.GetInt16("Correctanswer"));
+                    question = new Question(_reader.GetString("Question"),
+                                            _reader.GetString("Answer1"),
+                                            _reader.GetString("Answer2"),
+                                            _reader.GetString("Answer3"),
+                                            _reader.GetString("Answer4"),
+                                            _reader.GetInt16("Correctanswer"));
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
 
             Disconnect();
             return question;
         }
         public string RunPlayerCountQuery(string query)
         {
-            string result = null;
+            string result = "";
             try
             {
                 Connect();
-                cmd = new MySqlCommand(query, con);
-                reader = cmd.ExecuteReader();
-                if (reader.Read())
+                _cmd = new MySqlCommand(query, _connection);
+                _reader = _cmd.ExecuteReader();
+                if (_reader.Read())
                 {
-                    result = reader.GetString(0);
+                    result = _reader.GetString(0);
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             Disconnect();
             return result;
         }
         public string GetPlayerCount()
         {
-            return RunPlayerCountQuery(GetPlayerCountQuery);
+            return RunPlayerCountQuery(GET_PLAYER_COUNT_QUERY);
         }
         public Question GetQuestion()
         {
-            return RunQuestionQuery(GetQuestionQuery);
+            return RunQuestionQuery(GET_QUESTION_QUERY);
         }
         public string GetPlayerName(int id)
         {
-            return RunStringQuery(GetPlayerQuery + id);
+            return RunStringQuery(GET_PLAYER_QUERY + id);
         }
         public void AddPlayer(string name)
         {
-            RunAddQuery(AddPlayerQuery.Replace("*", name));
+            RunAddQuery(ADD_PLAYER_QUERY.Replace("*", name));
         }
         public void UpdateScore(int score, int id)
         {
@@ -214,44 +241,36 @@ namespace TriviaAPI
         }
         public float GetPlayerTime(int id)
         {
-            return RunFloatQuery(GetPlayerTimeQuery + id);
+            return RunFloatQuery(GET_PLAYER_TIME_QUERY + id);
         }
         public int GetPlayerScore(int id )
         {
-            return RunIntQuery(GetPlayerScoreQuery + id);
+            return RunIntQuery(GET_PLAYER_SCORE_QUERY + id);
         }
         public int GetPlayerQuestionCount(int id)
         {
-            return RunIntQuery(GetQuestionCountQuery + id);
+            return RunIntQuery(GET_QUESTION_COUNT_QUERY + id);
         }
         public void DeletePlayer()
         {
-            RunDeleteQuery(DeletePlayerQuery);
+            RunDeleteQuery(DELETE_PLAYER_QUERY);
         }
-
-
-
-
         public void Connect()
         {
             try
             {
-                con = new MySqlConnection(CON_STR);
-                con.Open();
-                Console.WriteLine(con.State);
+                _connection = new MySqlConnection(CONNECTION_STRING);
+                _connection.Open();
+                Console.WriteLine(_connection.State);
             }
             catch
             {
-                con.Close();
+                _connection.Close();
             }
         }
-
-
         public void Disconnect()
         {
-            con.Close();
+            _connection.Close();
         }
-
-
     }
 }

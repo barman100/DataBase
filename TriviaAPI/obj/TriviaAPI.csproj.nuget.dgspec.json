@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\samis\\source\\repos\\TriviaAPI\\TriviaAPI.csproj": {}
+    "C:\\Users\\Bar osher perez\\Desktop\\Tiltan\\DataBase\\TriviaAPI\\TriviaAPI\\TriviaAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\samis\\source\\repos\\TriviaAPI\\TriviaAPI.csproj": {
+    "C:\\Users\\Bar osher perez\\Desktop\\Tiltan\\DataBase\\TriviaAPI\\TriviaAPI\\TriviaAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\samis\\source\\repos\\TriviaAPI\\TriviaAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Bar osher perez\\Desktop\\Tiltan\\DataBase\\TriviaAPI\\TriviaAPI\\TriviaAPI.csproj",
         "projectName": "TriviaAPI",
-        "projectPath": "C:\\Users\\samis\\source\\repos\\TriviaAPI\\TriviaAPI.csproj",
-        "packagesPath": "C:\\Users\\samis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\samis\\source\\repos\\TriviaAPI\\obj\\",
+        "projectPath": "C:\\Users\\Bar osher perez\\Desktop\\Tiltan\\DataBase\\TriviaAPI\\TriviaAPI\\TriviaAPI.csproj",
+        "packagesPath": "C:\\Users\\Bar osher perez\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bar osher perez\\Desktop\\Tiltan\\DataBase\\TriviaAPI\\TriviaAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\samis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Bar osher perez\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
