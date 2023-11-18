@@ -11,8 +11,15 @@ public class ButtonScript : MonoBehaviour
     [SerializeField] APIManager apiManager;
     [SerializeField] Timer timer;
     [SerializeField] Score score;
-    [SerializeField] GameEndManager gameEndManager;
+    [SerializeField] Canvas GameScreen;
+    [SerializeField] Canvas WaitScreen;
     private static int questionCount = 1;
+
+    private void Start()
+    {
+        GameScreen.gameObject.SetActive(true);
+        WaitScreen.gameObject.SetActive(false);
+    }
     public void ButtonClicked()
     {
         if (answerText.text == GameManager.GetCorrectAnswer())
@@ -25,16 +32,19 @@ public class ButtonScript : MonoBehaviour
                 timer.finalTime = (timer.initialTime - timer.currentTime);
                 apiManager.UpdatePlayerScore(score.score, MainMenuManager.playerID);
                 apiManager.UpdatePlayerTime(timer.finalTime, MainMenuManager.playerID);
+                apiManager.UpdatePlayerQuestionCount(questionCount, MainMenuManager.playerID);
             }
             if (timer.currentTime <= 0)
             {
-                score.score = 2;
+                score.score = 0;
                 apiManager.UpdatePlayerScore(score.score, MainMenuManager.playerID);
+                apiManager.UpdatePlayerQuestionCount(questionCount, MainMenuManager.playerID);
             }
         }
         else
         {
             button.image.color = Color.red;
+            apiManager.UpdatePlayerQuestionCount(questionCount, MainMenuManager.playerID);
             Debug.Log("answer is not correct");
         }
 
@@ -44,11 +54,14 @@ public class ButtonScript : MonoBehaviour
         }
         else if (questionCount == 4)
         {
-            gameEndManager.EndGame();
+            GameScreen.gameObject.SetActive(false);
+            WaitScreen.gameObject.SetActive(true);
+            GameManager.isWaiting = true;
         }
         questionCount++;
-    }
 
+    }
+    
     IEnumerator GetNewQuestion()
     {
         yield return new WaitForSeconds(0.5f);

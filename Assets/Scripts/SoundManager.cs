@@ -6,20 +6,20 @@ using Unity.VisualScripting;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] private Button MusicButton1;
-    [SerializeField] private Button SoundButton1;
-    [SerializeField] private Button MusicButton2;
-    [SerializeField] private Button SoundButton2;
-    [SerializeField] private Button MusicButton3;
-    [SerializeField] private Button SoundButton3;
+    [SerializeField] Button MusicButton1;
+    [SerializeField] Button SoundButton1;
+    [SerializeField] Button MusicButton2;
+    [SerializeField] Button SoundButton2;
+    [SerializeField] Button MusicButton3;
+    [SerializeField] Button SoundButton3;
 
-    [SerializeField] private Sprite MusicOn;
-    [SerializeField] private Sprite MusicOff;
-    [SerializeField] private Sprite SoundOn;
-    [SerializeField] private Sprite SoundOff;
+    [SerializeField] Sprite MusicOn;
+    [SerializeField] Sprite MusicOff;
+    [SerializeField] Sprite SoundOn;
+    [SerializeField] Sprite SoundOff;
 
-    [SerializeField] private AudioSource ClickSound;
-    [SerializeField] private AudioSource Music;
+    [SerializeField] AudioSource ClickSound;
+    [SerializeField] AudioSource Music;
 
     private bool isMusicPlaying = true;
     private bool isSoundPlaying = true;

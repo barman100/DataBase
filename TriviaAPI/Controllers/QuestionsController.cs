@@ -8,7 +8,6 @@ namespace TriviaAPI.Controllers
     [ApiController]
     public class QuestionsController : ControllerBase
     {
-        // GET api/<QuestionsController>/5
         [HttpGet]
         public Question Get()
         {

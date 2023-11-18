@@ -5,9 +5,26 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    
-    public static Question CurrentQuestion { get; set; } 
+    [SerializeField] APIManager apiManager;
+    [SerializeField] GameEndManager gameEndManager;
+    public static Question CurrentQuestion { get; set; }
+    public static bool isWaiting = false;
 
+    private void Update()
+    {
+        if (isWaiting)
+        {
+            apiManager.GetQuestionCount(1, count1 =>
+            {
+                apiManager.GetQuestionCount(2, count2 =>
+                {
+                    if (count1 == 4 && count2 == 4)
+                        gameEndManager.EndGame();
+
+                });
+            });
+        }
+    }
     public static string GetCorrectAnswer()
     {
         if (CurrentQuestion == null)

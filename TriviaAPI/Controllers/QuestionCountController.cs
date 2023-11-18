@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Xml.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -7,21 +6,21 @@ namespace TriviaAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ScoreController : ControllerBase
+    public class QuestionCountController : ControllerBase
     {
         [HttpGet("{id}")]
-        public int GetScore(int id)
+        public int GetQuestionCount(int id)
         {
             DBHandler dBHandler = new DBHandler();
-            return dBHandler.GetPlayerScore(id);
+            return dBHandler.GetPlayerQuestionCount(id);
         }
         [HttpPost]
-        public void Post([FromBody] ScoreData data)
+        public void Post([FromBody] QuestionCountData data)
         {
-            int score = data.Score;
+            int count = data.Count;
             int id = data.PlayerID;
             DBHandler dBHandler = new DBHandler();
-            dBHandler.UpdateScore(score, id);
+            dBHandler.UpdateQuestionCount(count, id);
         }
     }
 }

@@ -7,17 +7,17 @@ using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] private GameObject Credits;
-    [SerializeField] private Canvas StartScreen;
-    [SerializeField] private Canvas NameScreen;
-    [SerializeField] private Canvas WaitScreen;
-    [SerializeField] private TMP_InputField NameInputField;
-    [SerializeField] private Button ReturnButton;
-    [SerializeField] private TMP_InputField playerName;
-    [SerializeField] private MainMenuAPIManager _MainMenuAPIManager;
+    [SerializeField] GameObject Credits;
+    [SerializeField] Canvas StartScreen;
+    [SerializeField] Canvas NameScreen;
+    [SerializeField] Canvas WaitScreen;
+    [SerializeField] TMP_InputField NameInputField;
+    [SerializeField] Button ReturnButton;
+    [SerializeField] TMP_InputField playerName;
+    [SerializeField] MainMenuAPIManager _MainMenuAPIManager;
     private int playerCount = 0;
     private bool CreditsShowing = false;
-    public static int playerID;
+    public static int playerID = 0;
 
     private void Start()
     {
@@ -34,11 +34,11 @@ public class MainMenuManager : MonoBehaviour
                 playerID = 1;
             else if (playerCount == 2)
             {
-                playerID = 2;
+                if (playerID == 0)
+                    playerID = 2;
                 StartGame();
             }
         }
-        
     }
     public void StartButtonClicked()
     {

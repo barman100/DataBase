@@ -21,6 +21,7 @@ namespace TriviaAPI
         const string GetPlayerCountQuery = "SELECT COUNT(`PlayerID`) FROM trivia.players;";
         const string GetPlayerScoreQuery = "SELECT Score FROM trivia.players WHERE PlayerID = ";
         const string GetPlayerTimeQuery = "SELECT Time FROM trivia.players WHERE PlayerID = ";
+        const string GetQuestionCountQuery = "SELECT QuestionCount FROM trivia.players WHERE PlayerID = ";
         public string RunStringQuery(string query)
         {
             string result = null;
@@ -128,6 +129,20 @@ namespace TriviaAPI
             catch (Exception ex) { }
             Disconnect();
         }
+        public void UpdatePlayerQuestionCountQuery(int newCount, int id)
+        {
+            try
+            {
+                Connect();
+                string query = "UPDATE trivia.players SET QuestionCount = @newCount WHERE PlayerID = @id";
+                cmd = new MySqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@newCount", newCount);
+                cmd.Parameters.AddWithValue("@id", id);
+                reader = cmd.ExecuteReader();
+            }
+            catch (Exception ex) { }
+            Disconnect();
+        }
         public Question RunQuestionQuery(string query)
         {
             Question question = null;
@@ -193,6 +208,10 @@ namespace TriviaAPI
         {
             UpdatePlayerTimeQuery(time, id);
         }
+        public void UpdateQuestionCount(int count, int id)
+        {
+            UpdatePlayerQuestionCountQuery(count, id);
+        }
         public float GetPlayerTime(int id)
         {
             return RunFloatQuery(GetPlayerTimeQuery + id);
@@ -200,6 +219,10 @@ namespace TriviaAPI
         public int GetPlayerScore(int id )
         {
             return RunIntQuery(GetPlayerScoreQuery + id);
+        }
+        public int GetPlayerQuestionCount(int id)
+        {
+            return RunIntQuery(GetQuestionCountQuery + id);
         }
         public void DeletePlayer()
         {

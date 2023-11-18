@@ -148,6 +148,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   answerText: {fileID: 4313905284826247156}
   button: {fileID: 1396162059536418448}
+  apiManager: {fileID: 0}
+  timer: {fileID: 0}
+  score: {fileID: 0}
+  GameScreen: {fileID: 0}
+  WaitScreen: {fileID: 0}
 --- !u!1 &2446759893910473760
 GameObject:
   m_ObjectHideFlags: 0

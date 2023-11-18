@@ -27,6 +27,7 @@ CREATE TABLE `players` (
   `Name` varchar(45) DEFAULT NULL,
   `Score` int NOT NULL DEFAULT '0',
   `Time` float NOT NULL DEFAULT '0',
+  `QuestionCount` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`PlayerID`),
   UNIQUE KEY `idplayers_UNIQUE` (`PlayerID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -38,7 +39,7 @@ CREATE TABLE `players` (
 
 LOCK TABLES `players` WRITE;
 /*!40000 ALTER TABLE `players` DISABLE KEYS */;
-INSERT INTO `players` VALUES (1,'dodo',20,8.64),(2,'Sami',20,4.95927);
+INSERT INTO `players` VALUES (1,'aaa',0,0,0),(2,'eeee',0,0,0);
 /*!40000 ALTER TABLE `players` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,4 +82,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-06 15:48:08
+-- Dump completed on 2023-11-18 15:01:29

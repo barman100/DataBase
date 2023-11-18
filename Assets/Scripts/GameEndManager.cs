@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameEndManager : MonoBehaviour
 {
@@ -51,5 +51,12 @@ public class GameEndManager : MonoBehaviour
                 });
             });
         });
+        StartCoroutine(End());
+    }
+    IEnumerator End()
+    {
+        yield return new WaitForSeconds(3.0f);
+        apiManager.DeletePlayer();
+        SceneManager.LoadScene(0);
     }
 }
