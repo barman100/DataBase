@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class GameEndManager : MonoBehaviour
 {
@@ -46,22 +47,25 @@ public class GameEndManager : MonoBehaviour
                                 _waitScreen.gameObject.SetActive(false);
                                 _gameEnd.gameObject.SetActive(true);
                             }
-                            else 
+                            else
                             {
+                                _waitScreen.gameObject.SetActive(false);
+                                _gameEnd.gameObject.SetActive(true);
                                 _uiManager.ZeroPointsGame();
                             }
                         }
-
                     });
                 });
             });
         });
+
         StartCoroutine(End());
     }
     IEnumerator End()
     {
+        GameManager._isWaiting = false;
         yield return new WaitForSeconds(3.0f);
-        //_apiManager.DeletePlayer();
-        //Application.Quit();
+        _apiManager.DeletePlayer();
+        Application.Quit();
     }
 }

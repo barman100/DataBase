@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour
 
     private int _questionCount = 1;
     private int _score;
-    private bool _isWaiting = false;
+    private int _count1;
+    private int _count2;
+    public static bool _isWaiting = false;
     public static Question CurrentQuestion { get; set; }
 
     public static event Action<ButtonScript> OnButtonPressed;
@@ -31,15 +33,11 @@ public class GameManager : MonoBehaviour
     {
         if (_isWaiting)
         {
-            _apiManager.GetQuestionCount(1, count1 =>
-            {
-                _apiManager.GetQuestionCount(2, count2 =>
-                {
-                    if (count1 == 4 && count2 == 4)
-                        _gameEndManager.EndGame();
+            _apiManager.GetQuestionCount(1, Count1);
+            _apiManager.GetQuestionCount(2, Count2);
 
-                });
-            });
+            if (_count1 == 4 && _count2 == 4)
+                _gameEndManager.EndGame();
         }
     }
     public void ButtonClicked(ButtonScript _button)
@@ -88,6 +86,14 @@ public class GameManager : MonoBehaviour
         _apiManager.GetQuestion();
         _button.ChangeColor(Color.white);
         _timer.ResetTimer();
+    }
+    private void Count1(int count)
+    {
+        _count1 = count;
+    }
+    private void Count2(int count)
+    {
+        _count2 = count;
     }
     public string GetCorrectAnswer()
     {
