@@ -1,14 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using System;
 using UnityEngine.Networking;
 using UnityEngine;
-using TMPro;
 
 public class APIManager : MonoBehaviour
 {
-    [SerializeField] UIManager uIManager;
-    const string API_URL = "https://localhost:7014/api/";
+    [SerializeField] UIManager _uiManager;
+    const string API_URL = "https://localhost:7006/api/";
 
     public void UpdatePlayerScore(int score, int id)
     {
@@ -49,8 +47,6 @@ public class APIManager : MonoBehaviour
     IEnumerator UpdatePlayerScoreCor(int score, int id)
     {
         string url = API_URL + "Score/";
-
-
         string jsonPayload = $"{{\"Score\":{score},\"PlayerID\":{id}}}";
         byte[] jsonBytes = System.Text.Encoding.UTF8.GetBytes(jsonPayload);
 
@@ -61,22 +57,11 @@ public class APIManager : MonoBehaviour
             request.downloadHandler = new DownloadHandlerBuffer();
 
             yield return request.SendWebRequest();
-
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                Debug.Log($"Success Score {score} ID {id}");
-            }
-            else
-            {
-                Debug.Log($"Failed Score {score} ID {id}");
-                Debug.Log("Response Content: " + request.downloadHandler.text);
-            }
         }
     }
     IEnumerator UpdatePlayerTimeCor(float time, int id)
     {
         string url = API_URL + "Time/";
-
         string jsonPayload = $"{{\"Time\":{time},\"PlayerID\":{id}}}";
         byte[] jsonBytes = System.Text.Encoding.UTF8.GetBytes(jsonPayload);
 
@@ -87,23 +72,11 @@ public class APIManager : MonoBehaviour
             request.downloadHandler = new DownloadHandlerBuffer();
 
             yield return request.SendWebRequest();
-
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                Debug.Log($"Success Time {time} ID {id}");
-            }
-            else
-            {
-                Debug.Log($"Failed Time {time} ID {id}");
-                Debug.Log("Response Content: " + request.downloadHandler.text);
-            }
         }
     }
     IEnumerator UpdatePlayerQuestionCountCor(int count, int id)
     {
         string url = API_URL + "QuestionCount/";
-
-
         string jsonPayload = $"{{\"Count\":{count},\"PlayerID\":{id}}}";
         byte[] jsonBytes = System.Text.Encoding.UTF8.GetBytes(jsonPayload);
 
@@ -114,16 +87,6 @@ public class APIManager : MonoBehaviour
             request.downloadHandler = new DownloadHandlerBuffer();
 
             yield return request.SendWebRequest();
-
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                Debug.Log($"Success QuestionCount {count} ID {id}");
-            }
-            else
-            {
-                Debug.Log($"Failed QuestionCount {count} ID {id}");
-                Debug.Log("Response Content: " + request.downloadHandler.text);
-            }
         }
     }
     IEnumerator GetTimeCor(int id, Action<float> callback)
@@ -135,10 +98,6 @@ public class APIManager : MonoBehaviour
             {
                 float time = float.Parse(request.downloadHandler.text);
                 callback(time);
-            }
-            else
-            {
-                Debug.LogError("Failed to retrieve the time.");
             }
         }
     }
@@ -152,11 +111,6 @@ public class APIManager : MonoBehaviour
                 int score = int.Parse(request.downloadHandler.text);
                 callback(score);
             }
-            else
-            {
-                Debug.LogError("Failed to retrieve the score.");
-            }
-
         }
     }
     IEnumerator GetQuestionCountCor(int id, Action<int> callback)
@@ -168,13 +122,7 @@ public class APIManager : MonoBehaviour
             {
                 int count = int.Parse(request.downloadHandler.text);
                 callback(count);
-                Debug.Log($"Success QuestionCount {count}");
             }
-            else
-            {
-                Debug.LogError("Failed to retrieve the QuestionCount.");
-            }
-
         }
     }
     IEnumerator GetQuestionCor()
@@ -187,8 +135,8 @@ public class APIManager : MonoBehaviour
                 case UnityWebRequest.Result.Success:
                     string jsonQuestion = request.downloadHandler.text;
                     Question question = JsonUtility.FromJson<Question>(jsonQuestion);
-                    uIManager.UpdateQuestion(question);
-                    uIManager.UpdatAnswers(question);
+                    _uiManager.UpdateQuestion(question);
+                    _uiManager.UpdatAnswers(question);
                     GameManager.CurrentQuestion = question;
                     break;
             }
@@ -202,11 +150,7 @@ public class APIManager : MonoBehaviour
             if (request.result == UnityWebRequest.Result.Success)
             {
                 string playerName = request.downloadHandler.text;
-                uIManager.UpdateWinner(playerName);
-            }
-            else
-            {
-                Debug.LogError("Failed to retrieve the name.");
+                _uiManager.UpdateWinner(playerName);
             }
         }
     }
@@ -215,15 +159,6 @@ public class APIManager : MonoBehaviour
         using (UnityWebRequest request = UnityWebRequest.Delete(API_URL + "Players/"))
         {
             yield return request.SendWebRequest();
-
-            if (request.result == UnityWebRequest.Result.Success)
-            {
-                Debug.Log("Player deleted successfully.");
-            }
-            else
-            {
-                Debug.LogError("Failed to delete player. Error: " + request.error);
-            }
         }
     }
 }

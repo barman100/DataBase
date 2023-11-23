@@ -1,42 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] Text timerText;
-    
-    public float currentTime;
-    public float initialTime = 10;
-    public float finalTime;
+    [SerializeField] Text _timerText;  
+    public float CurrentTime;
+    public float InitialTime = 10;
+    public float FinalTime;
     
     private void Start()
     {
-        currentTime = initialTime;
+        CurrentTime = InitialTime;
         UpdateTimerDisplay();
     }
     private void Update()
     {
-        if (currentTime > 0)
+        TimerDisplay();
+    }
+    private void TimerDisplay()
+    {
+        if (CurrentTime > 0)
         {
-            currentTime -= Time.deltaTime;
+            CurrentTime -= Time.deltaTime;
             UpdateTimerDisplay();
         }
 
-        if (currentTime <= 0)
+        if (CurrentTime <= 0)
         {
-            currentTime = 0;
+            CurrentTime = 0;
             UpdateTimerDisplay();
         }
     }
     private void UpdateTimerDisplay()
     {
-        int seconds = Mathf.CeilToInt(currentTime);
-        timerText.text = seconds.ToString();
+        int seconds = Mathf.CeilToInt(CurrentTime);
+        _timerText.text = seconds.ToString();
     }
     public void ResetTimer()
     {
-        currentTime = initialTime;
+        CurrentTime = InitialTime;
     }
 }

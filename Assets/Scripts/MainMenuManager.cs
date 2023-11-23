@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,51 +5,60 @@ using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] GameObject Credits;
-    [SerializeField] Canvas StartScreen;
-    [SerializeField] Canvas NameScreen;
-    [SerializeField] Canvas WaitScreen;
-    [SerializeField] TMP_InputField NameInputField;
-    [SerializeField] Button ReturnButton;
-    [SerializeField] TMP_InputField playerName;
-    [SerializeField] MainMenuAPIManager _MainMenuAPIManager;
-    private int playerCount = 0;
-    private bool CreditsShowing = false;
-    public static int playerID = 0;
+    [SerializeField] GameObject _credits;
+    [SerializeField] Canvas _startScreen;
+    [SerializeField] Canvas _nameScreen;
+    [SerializeField] Canvas _waitScreen;
+    [SerializeField] TMP_InputField _nameInputField;
+    [SerializeField] Button _returnButton;
+    [SerializeField] TMP_InputField _playerName;
+    [SerializeField] MainMenuAPIManager _mainMenuAPIManager;
+    private int _playerCount = 0;
+    private bool _creditsShowing = false;
 
+    public static int PlayerID = 0;
     private void Start()
     {
-        StartScreen.gameObject.SetActive(true);
-        NameScreen.gameObject.SetActive(false);
-        WaitScreen.gameObject.SetActive(false);
+        _startScreen.gameObject.SetActive(true);
+        _nameScreen.gameObject.SetActive(false);
+        _waitScreen.gameObject.SetActive(false);
     }
     private void Update()
     {
-        if (WaitScreen.isActiveAndEnabled == true)
+        CheckForPlayers();
+    }
+
+    private void CheckForPlayers()
+    {
+        if (_waitScreen.isActiveAndEnabled == true)
         {
-            playerCount = _MainMenuAPIManager.GetPlayerCount();
-            if (playerCount == 1)
-                playerID = 1;
-            else if (playerCount == 2)
+            _playerCount = _mainMenuAPIManager.GetPlayerCount();
+
+            if (_playerCount == 1)
+                PlayerID = 1;
+
+            else if (_playerCount == 2)
             {
-                if (playerID == 0)
-                    playerID = 2;
+                if (PlayerID == 0)
+                    PlayerID = 2;
+
                 StartGame();
             }
         }
     }
+
     public void StartButtonClicked()
     {
-        StartScreen.gameObject.SetActive(false);
-        NameScreen.gameObject.SetActive(true);
+        _startScreen.gameObject.SetActive(false);
+        _nameScreen.gameObject.SetActive(true);
     }
     public void EnteredName()
     {
-        if (NameInputField.text != "")
+        if (_nameInputField.text != "")
         {
-            _MainMenuAPIManager.UpdatePlayerName(playerName.text);
-            NameScreen.gameObject.SetActive(false);
-            WaitScreen.gameObject.SetActive(true);
+            _mainMenuAPIManager.UpdatePlayerName(_playerName.text);
+            _nameScreen.gameObject.SetActive(false);
+            _waitScreen.gameObject.SetActive(true);
         }
     }
     public void StartGame()
@@ -60,19 +67,33 @@ public class MainMenuManager : MonoBehaviour
     }
     public void ShowCredits()
     {
-        
-        if (CreditsShowing) { Credits.SetActive(false); CreditsShowing = false; ReturnButton.gameObject.SetActive(false); }
-        else if (!CreditsShowing) { Credits.SetActive(true); CreditsShowing = true; ReturnButton.gameObject.SetActive(true); }
+
+        if (_creditsShowing)
+        {
+            _credits.SetActive(false);
+            _creditsShowing = false;
+            _returnButton.gameObject.SetActive(false);
+        }
+        else if (!_creditsShowing)
+        {
+            _credits.SetActive(true);
+            _creditsShowing = true;
+            _returnButton.gameObject.SetActive(true);
+        }
     }
     public void ReturnButtonClicked()
     {
-        if (NameScreen.isActiveAndEnabled == true)
+        if (_nameScreen.isActiveAndEnabled == true)
         {
-            StartScreen.gameObject.SetActive(true);
-            NameScreen.gameObject.SetActive(false);
+            _startScreen.gameObject.SetActive(true);
+            _nameScreen.gameObject.SetActive(false);
         }
-        else if (CreditsShowing)
-        { Credits.SetActive(false); CreditsShowing = false; ReturnButton.gameObject.SetActive(false); }
+        else if (_creditsShowing)
+        {
+            _credits.SetActive(false);
+            _creditsShowing = false;
+            _returnButton.gameObject.SetActive(false);
+        }
     }
-   
+
 }

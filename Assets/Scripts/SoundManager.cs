@@ -1,42 +1,69 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] Button MusicButton1;
-    [SerializeField] Button SoundButton1;
-    [SerializeField] Button MusicButton2;
-    [SerializeField] Button SoundButton2;
-    [SerializeField] Button MusicButton3;
-    [SerializeField] Button SoundButton3;
+    [SerializeField] Button _musicButton_01;
+    [SerializeField] Button _musicButton_02;
+    [SerializeField] Button _musicButton_03;
+    
+    [SerializeField] Button _soundButton_01;
+    [SerializeField] Button _soundButton_02;
+    [SerializeField] Button _soundButton_03;
 
-    [SerializeField] Sprite MusicOn;
-    [SerializeField] Sprite MusicOff;
-    [SerializeField] Sprite SoundOn;
-    [SerializeField] Sprite SoundOff;
+    [SerializeField] Sprite _musicOn;
+    [SerializeField] Sprite _musicOff;
+    
+    [SerializeField] Sprite _soundOn;
+    [SerializeField] Sprite _soundOff;
 
-    [SerializeField] AudioSource ClickSound;
-    [SerializeField] AudioSource Music;
+    [SerializeField] AudioSource _clickSound;
+    [SerializeField] AudioSource _music;
 
-    private bool isMusicPlaying = true;
-    private bool isSoundPlaying = true;
+    private bool _isMusicPlaying = true;
+    private bool _isSoundPlaying = true;
 
     public void StopMusic()
-    { 
-        if (isMusicPlaying) { Music.enabled = false; isMusicPlaying = false; MusicButton1.image.sprite = MusicOff; MusicButton2.image.sprite = MusicOff; MusicButton3.image.sprite = MusicOff; }
-        else if (!isMusicPlaying) { Music.enabled = true; isMusicPlaying = true; MusicButton1.image.sprite = MusicOn; MusicButton2.image.sprite = MusicOn; MusicButton3.image.sprite = MusicOn; }
+    {
+        if (_isMusicPlaying)
+        {
+            _music.enabled = false;
+            _isMusicPlaying = false;
+            _musicButton_01.image.sprite = _musicOff;
+            _musicButton_02.image.sprite = _musicOff;
+            _musicButton_03.image.sprite = _musicOff;
+        }
+        else if (!_isMusicPlaying)
+        {
+            _music.enabled = true;
+            _isMusicPlaying = true;
+            _musicButton_01.image.sprite = _musicOn;
+            _musicButton_02.image.sprite = _musicOn;
+            _musicButton_03.image.sprite = _musicOn;
+        }
     }
     public void StopSound()
     {
-        if (isSoundPlaying) { ClickSound.enabled = false; isSoundPlaying = false; SoundButton1.image.sprite = SoundOff; SoundButton2.image.sprite = SoundOff; SoundButton3.image.sprite = SoundOff; }
-        else if (!isSoundPlaying) { ClickSound.enabled = true; isSoundPlaying = true; SoundButton1.image.sprite = SoundOn; SoundButton2.image.sprite = SoundOn; SoundButton3.image.sprite = SoundOn; }
+        if (_isSoundPlaying)
+        {
+            _clickSound.enabled = false;
+            _isSoundPlaying = false;
+            _soundButton_01.image.sprite = _soundOff;
+            _soundButton_02.image.sprite = _soundOff;
+            _soundButton_03.image.sprite = _soundOff;
+        }
+        else if (!_isSoundPlaying)
+        {
+            _clickSound.enabled = true;
+            _isSoundPlaying = true;
+            _soundButton_01.image.sprite = _soundOn;
+            _soundButton_02.image.sprite = _soundOn;
+            _soundButton_03.image.sprite = _soundOn;
+        }
     }
     public void PlayButtonSound()
     {
-        if (isSoundPlaying)
-        ClickSound.Play();
+        if (_isSoundPlaying)
+        _clickSound.Play();
     }
 }

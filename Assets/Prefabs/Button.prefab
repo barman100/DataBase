@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cf9ef043d92b60e4ab5b15cb10658f55, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8390234e5e26b94ea0109cbb41815cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -124,7 +124,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6111160951036745192}
         m_TargetAssemblyTypeName: ButtonScript, Assembly-CSharp
-        m_MethodName: ButtonClicked
+        m_MethodName: BtnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -146,13 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 224787e4272bc134f9594ffb1ef14617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answerText: {fileID: 4313905284826247156}
-  button: {fileID: 1396162059536418448}
-  apiManager: {fileID: 0}
-  timer: {fileID: 0}
-  score: {fileID: 0}
-  GameScreen: {fileID: 0}
-  WaitScreen: {fileID: 0}
+  _btn: {fileID: 1396162059536418448}
+  AnswerText: {fileID: 4313905284826247156}
 --- !u!1 &2446759893910473760
 GameObject:
   m_ObjectHideFlags: 0

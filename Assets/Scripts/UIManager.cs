@@ -1,35 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public TMP_Text questiontext;
-    public TMP_Text answer1text;
-    public TMP_Text answer2text;
-    public TMP_Text answer3text;
-    public TMP_Text answer4text;
-    public TMP_Text gameEndText;
-    public APIManager _APIManager;
+    [SerializeField] TMP_Text _questionText;
+    [SerializeField] TMP_Text _answerText_01;
+    [SerializeField] TMP_Text _answerText_02;
+    [SerializeField] TMP_Text _answerText_03;
+    [SerializeField] TMP_Text _answerText_04;
+    [SerializeField] TMP_Text _gameEndText;
+    [SerializeField] APIManager _apiManager;
     
     private void Start()
     {
-        _APIManager.GetQuestion();
+        _apiManager.GetQuestion();
     }
     public void UpdateQuestion(Question question)
     {
-        questiontext.text = question.question;
+        _questionText.text = question.questionString;
     }
     public void UpdatAnswers(Question question)
     {
-        answer1text.text =  question.ans1;
-        answer2text.text =  question.ans2;
-        answer3text.text =  question.ans3;
-        answer4text.text =  question.ans4;
+        _answerText_01.text =  question.answer_01;
+        _answerText_02.text =  question.answer_02;
+        _answerText_03.text =  question.answer_03;
+        _answerText_04.text =  question.answer_04;
     }
     public void UpdateWinner(string name)
     {
-        gameEndText.text = (name + " Win");
+        _gameEndText.text = (name + " Win");
+    }
+    public void ZeroPointsGame()
+    {
+        _gameEndText.text = "Both Players Got Zero points Draw";
     }
 }
